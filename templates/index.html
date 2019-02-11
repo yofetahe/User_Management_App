@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="wrapper">
+        <p>All Users</p>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in usersList: %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+                    <td>{{ user['email'] }}</td>
+                    <td>{{ user['create_at'] }}</td>
+                    <td>
+                       
+                        <a href="/show_user/{{ user['id'] }}" class="action-link"> Show </a> 
+
+                        <span class="action-separetor"> | </span>
+                        
+                        <a href="/get_user_update_form/{{ user['id'] }}" class="action-link" > Edit </a> 
+                        
+                        <span class="action-separetor"> | </span>
+
+                        <a href="/delete_user/{{ user['id'] }}" class="action-link"> Delete </a> 
+                         
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="wrapper">
+        <a href="/get_user_registration_form">Add a New User</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="wrapper">
+            <span class="dot"></span>
+            <span class="app-name">USERs Management</span>
+            <span class="app-menu">
+                <a href="/users"> Home </a>
+            </span>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+
+    <div id="footer">
+        <div class="wrapper">            
+            <p class="org-name"> YamGet </p>
+            <p class="copyright"> Copyright &copy;2001-<script type="text/JavaScript"> var theDate=new Date(); document.write(theDate.getFullYear())</script> </p>
+        </div>
+    </div>
+</body>
+</html>
