@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from mysqlconnection import connectToMySQL
+from form import registrationForm, userUpdateForm
 
 app = Flask('__name__')
+app.secret_key = "development_tool"
 
 @app.route("/")
 @app.route("/users")
@@ -13,7 +15,8 @@ def homePage():
 
 @app.route("/get_user_registration_form")
 def get_user_registration_form():
-    return render_template("registration_form.html")
+    form = registrationForm()
+    return render_template("registration_form.html", form=form)
 
 @app.route("/save_user", methods=['POST'])
 def save_users():
@@ -42,6 +45,7 @@ def show_user(user_id):
 
 @app.route("/get_user_update_form/<user_id>", methods=['GET'])
 def get_user_update_form(user_id):
+    form = userUpdateForm()
     my_sql = connectToMySQL('flask_pets')    
     query = "SELECT * FROM users WHERE id = %(user_id)s"
     data = {
@@ -49,7 +53,7 @@ def get_user_update_form(user_id):
     }
     user = my_sql.query_db(query, data)
     print(user)
-    return render_template("update_form.html", user=user)
+    return render_template("update_form.html", user=user, form=form)
 
 @app.route("/update_user/<user_id>", methods=['POST'])
 def update_user(user_id):

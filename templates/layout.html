@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Management</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+    <!-- Begin - javascript and CSS required for implmenting dataTables -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <!-- end - javascript and CSS required for implmenting dataTables -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">    
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </head>
 <body>
     <div id="header">
@@ -17,6 +25,8 @@
             <span class="app-name">USERs Management</span>
             <span class="app-menu">
                 <a href="/users"> Home </a>
+                <span class="action-separetor"> | </span>
+                <a href="/get_user_registration_form">Add a New User</a>                    
             </span>
         </div>
     </div>
@@ -29,7 +39,7 @@
 
     <div id="footer">
         <div class="wrapper">            
-            <p class="org-name"> YamGet </p>
+            <p class="org-name"> Org. Name </p>
             <p class="copyright"> Copyright &copy;2001-<script type="text/JavaScript"> var theDate=new Date(); document.write(theDate.getFullYear())</script> </p>
         </div>
     </div>

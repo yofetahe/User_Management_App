@@ -5,18 +5,33 @@
         <p>Add a New User</p>    
         <form action="/save_user" method="POST">
             <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" class="form-control" name="first_name">
+                {{ form.first_name.label }}
+                    {% if form.first_name.errors: %}
+                        {% for error in form.first_name.errors: %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {{ form.first_name(class='form-control') }}
             </div>
             <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" class="form-control" name="last_name">
+                {{ form.last_name.label }}
+                    {% if form.last_name.errors: %}
+                        {% for error in form.last_name.errors: %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {{ form.last_name(class="form-control") }}
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" name="email">
-            </div>
-            <input type="submit" class="btn btn-primary" value="Create">
+                {{ form.email.label }}
+                    {% if form.email.errors: %}
+                        {% for error in form.email.errors: %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {{ form.email(class="form-control") }}
+            </div>            
+            {{ form.submit(class='btn btn-primary') }}
         </form>
     </div>
 {% endblock %}
